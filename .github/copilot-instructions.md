@@ -1,4 +1,4 @@
-Vue.js project for Towiana's Mobile Notary & Business Services.
+Vue.js project for Towana Mobile Notary & Business Services.
 
 ## Project Overview
 - Single page landing site with booking form

@@ -1,6 +1,6 @@
-# Towiana's Mobile Notary & Business Services
+# Towana's Mobile Notary & Business Services
 
-Site vitrine moderne pour les services de notaire mobile de Towiana.
+Site vitrine moderne pour les services de notaire mobile de Towana.
 
 ## 🚀 Démarrage rapide
 
@@ -38,4 +38,4 @@ npm run build
 
 ---
 
-Développé avec ❤️ pour Towiana's Mobile Notary & Business Services
+Développé avec ❤️ pour Towana's Mobile Notary & Business Services

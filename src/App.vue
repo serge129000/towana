@@ -3,7 +3,7 @@
     <!-- Navigation -->
     <nav class="navbar">
       <div class="nav-container">
-        <div class="logo-nav">Towiana's</div>
+        <div class="logo-nav">Towana's</div>
         <button @click="openContactModal" class="contact-btn-nav">Contact Us</button>
       </div>
     </nav>
@@ -12,21 +12,33 @@
     <section class="hero">
       <div class="hero-content">
         <div class="logo-main">
-          <h1 class="logo-title">Towiana's</h1>
+          <h1 class="logo-title">Towana's</h1>
           <h2 class="logo-subtitle">MOBILE NOTARY <span class="ampersand">&</span> BUSINESS SERVICES</h2>
         </div>
         <p class="hero-description">
           Professional notary services at your doorstep. Reliable, fast, and available throughout Alabama.
         </p>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Professional</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">Available</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">AL</div>
+            <div class="stat-label">Wide Coverage</div>
+          </div>
+        </div>
         <button @click="openContactModal" class="cta-button">
           Book a Service
           <span class="arrow">→</span>
         </button>
       </div>
       <div class="hero-image">
-        <div class="notary-illustration">
-          <div class="stamp-circle"></div>
-        </div>
+        <img src="/src/assets/notary.png" alt="Notary Services" class="notary-illustration" />
       </div>
     </section>
 
@@ -34,6 +46,7 @@
     <section class="services" id="services">
       <div class="container">
         <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">Complete notary solutions for your legal and business needs</p>
         <div class="services-grid">
           <div class="service-card" v-for="service in services" :key="service.title">
             <div class="service-icon">{{ service.icon }}</div>
@@ -188,7 +201,7 @@
       <div class="container">
         <div class="footer-content">
           <div class="footer-logo">
-            <h3>Towiana's</h3>
+            <h3>Towana's</h3>
             <p>Mobile Notary & Business Services</p>
           </div>
           <div class="footer-contact">
@@ -197,7 +210,7 @@
           </div>
         </div>
         <div class="footer-bottom">
-          <p>&copy; 2026 Towiana's Mobile Notary & Business Services. All rights reserved.</p>
+          <p>&copy; 2026 Towana's Mobile Notary & Business Services. All rights reserved.</p>
         </div>
       </div>
     </footer>
@@ -212,23 +225,48 @@ const showModal = ref(false)
 const services = [
   {
     icon: '📄',
-    title: 'GNW',
-    description: 'General notarization services for all your official documents'
+    title: 'General Notary Work',
+    description: 'Comprehensive notarization services for all your official documents and legal needs'
   },
   {
     icon: '📋',
     title: 'Bill of Sale',
-    description: 'Notarization of sales contracts for vehicles and other property'
+    description: 'Expert notarization of sales contracts for vehicles, boats, and personal property'
   },
   {
     icon: '⚖️',
     title: 'Power of Attorney',
-    description: 'Notarized powers of attorney for your legal representations'
+    description: 'Secure notarization of legal powers of attorney for financial and healthcare decisions'
   },
   {
     icon: '💍',
-    title: 'Marriage Certificate',
-    description: 'Certification of marriage documents and other civil records'
+    title: 'Marriage Certificates',
+    description: 'Official certification and notarization of marriage documents and civil records'
+  },
+  {
+    icon: '✍️',
+    title: 'Affidavits & Oaths',
+    description: 'Professional administration of sworn statements, affidavits, and legal oaths'
+  },
+  {
+    icon: '🏠',
+    title: 'Real Estate Documents',
+    description: 'Specialized notarization for property deeds, mortgage papers, and real estate contracts'
+  },
+  {
+    icon: '🎓',
+    title: 'Educational Documents',
+    description: 'Notarization of diplomas, transcripts, and educational certification documents'
+  },
+  {
+    icon: '💼',
+    title: 'Business Contracts',
+    description: 'Corporate notarization services for business agreements, contracts, and legal documents'
+  },
+  {
+    icon: '🌍',
+    title: 'International Documents',
+    description: 'Apostille services and international document authentication for global use'
   }
 ]
 
@@ -384,7 +422,29 @@ const handleSubmit = () => {
   line-height: 1.8;
   margin-bottom: 2rem;
 }
+.hero-stats {
+  display: flex;
+  gap: 2.5rem;
+  margin-bottom: 2rem;
+}
 
+.stat-item {
+  flex: 1;
+  min-width: 100px;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}
 .cta-button {
   background: linear-gradient(135deg, #e91e63 0%, #9c27b0 100%);
   color: white;
@@ -423,14 +483,9 @@ const handleSubmit = () => {
 .notary-illustration {
   width: 400px;
   height: 400px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
   animation: float 3s ease-in-out infinite;
-  box-shadow: 0 20px 60px rgba(118, 75, 162, 0.3);
+  filter: drop-shadow(0 20px 60px rgba(118, 75, 162, 0.3));
+  object-fit: contain;
 }
 
 @keyframes float {
@@ -443,13 +498,9 @@ const handleSubmit = () => {
 }
 
 .stamp-circle {
-  width: 250px;
-  height: 250px;
-  border: 15px dashed rgba(255, 255, 255, 0.4);
-  border-radius: 50%;
+  display: none;
 }
 
-/* Services Section */
 .services {
   background: #f8f9fa;
   padding: 5rem 2rem;
@@ -463,46 +514,98 @@ const handleSubmit = () => {
 .section-title {
   font-size: 2.5rem;
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   color: #333;
   font-weight: 700;
 }
 
+.section-subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+}
+
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .service-card {
-  background: white;
-  padding: 2.5rem;
-  border-radius: 20px;
+  background: linear-gradient(145deg, #ffffff 0%, #f8f9ff 100%);
+  padding: 2.5rem 2rem;
+  border-radius: 24px;
   text-align: center;
-  transition: all 0.3s ease;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(233, 30, 99, 0.05) 0%, rgba(156, 39, 176, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.service-card:hover::before {
+  opacity: 1;
 }
 
 .service-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 24px 64px rgba(156, 39, 176, 0.15);
+  border-color: rgba(156, 39, 176, 0.2);
 }
 
 .service-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  display: block;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+  transition: all 0.4s ease;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.15) rotate(5deg);
+  filter: drop-shadow(0 8px 16px rgba(156, 39, 176, 0.3));
 }
 
 .service-card h3 {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: #333;
   margin-bottom: 1rem;
-  font-weight: 600;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+.service-card:hover h3 {
+  color: #9c27b0;
 }
 
 .service-card p {
   color: #666;
-  line-height: 1.6;
+  line-height: 1.7;
+  font-size: 0.95rem;
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+.service-card:hover p {
+  color: #555;
 }
 
 /* About Section */
@@ -787,6 +890,15 @@ const handleSubmit = () => {
     order: -1;
   }
 
+  .hero-stats {
+    justify-content: center;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
   .notary-illustration {
     width: 300px;
     height: 300px;
@@ -810,6 +922,20 @@ const handleSubmit = () => {
 @media (max-width: 640px) {
   .form-row {
     grid-template-columns: 1fr;
+  }
+
+  .hero-stats {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    padding: 2rem 1.5rem;
   }
 
   .logo-title {
